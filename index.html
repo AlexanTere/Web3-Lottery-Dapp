@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lottary_Dapp</title>
+  <style>
+    body{
+      background-image: url("web/src/background.jpg");
+    }
+    h1{
+        text-align: center;
+        color: white;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+      margin-left: 35%;
+      margin-right: 35%;
+      border: 1px solid black;
+      background-color: steelblue;
+      padding: 10px;
+    }
+    .container img {
+      width: 200px;
+      height: auto;
+    }
+    .container button {
+      margin-top: 10px;
+      width: 120px;
+      height: 40px;
+      background-color: yellow;
+    }
+    .container textarea {
+      width: 200px;
+      height: 50px;
+      margin-top: 10px;
+      resize: none;
+    }
+    .address-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      margin-left: 30%;
+      margin-right: 30%;
+      
+    }
+    .address-container textarea {
+      width: 50%;
+      resize: none;
+    }
+    .description {
+      color: white;
+      font-size: large;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .button-public button.reveal,button.winner {
+      
+      text-align: center;
+      
+      margin-bottom: 10px;
+      width: 100px;
+      height: 50px;
+      margin-right: 10px;
+      background-color: royalblue;
+      color: white;
+      border-radius: 20%;
+    }
+
+    .button-private button.withdraw,button.declare,button.startNew,button.transfer {
+      
+      text-align: center;
+      margin-bottom: 10px;
+      width: 100px;
+      height: 50px;
+      margin-right: 10px;
+      
+      top:100px;
+      background-color: orange;
+      color: white;
+      border-radius: 20%;
+    }
+
+    .button-private button.destroy{
+      text-align: center;
+      width: 70px;
+      height: 50px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      background-color: red;
+      color: black;
+      font-weight: bold;
+      border-radius: 20%;
+      float: right;
+    }
+
+    .changeOwner textarea{
+      width: 20%;
+      resize: none;
+      margin-bottom: 20px;
+      margin-left: 40%;
+      margin-right: auto;
+    
+    }
+
+    .changeOwner button{
+      width: 150px;
+      margin-bottom: 5px;
+      text-align: center;
+      height: 50px;
+      background-color: orange;
+      color: white;
+      border-radius: 20%;
+      margin-left: 47%;
+      
+    }
+     
+
+    .address-container textarea {
+      text-align: center;
+      font-size:150%;
+    }
+
+    p {
+       color:white;
+       font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+ <h1>My Lottary</h1>
+  <div class="container">
+    <p>CAR</p>
+    <img src="web/src/car.jpg" alt="Image 1">
+    <button onclick="onClick(1)">Bid</button>
+    <textarea id="carClick" readonly></textarea>
+  </div>
+
+  <div class="container">
+    <p>LAPTOP</p>
+    <img src="web/src/laptop.jpg" alt="Image 2">
+    <button onclick="onClick(2)">Bid</button>
+    <textarea id="laptopClick" readonly></textarea>
+  </div>
+
+  <div class="container">
+    <p>PHONE</p>
+    <img src="web/src/phone.jpg" alt="Image 3">
+    <button onclick="onClick(3)">Bid</button>
+    <textarea id="phoneClick" readonly></textarea>
+  </div>
+
+  <div class="address-container">
+    <div class="description">Current Address:</div>
+    <textarea id="currentAddress" readonly></textarea>
+  </div>
+
+  <div class="address-container">
+    <div class="description">Owner Address:</div>
+    <textarea id="ownerAddress" readonly>0xd12422C466a7522732730C82fc56D581836B8fDa</textarea>
+  </div>
+
+  <div class="changeOwner">
+    <textarea id="newManager">Enter new manager address</textarea>
+    <button class="transfer">Transfer Contract </button>
+  </div>
+
+  <div class="button-public">
+    <button class="reveal">Reveal</button>
+    <button class="winner">I am Winner</button>
+  </div>
+
+  <div class="button-private">
+    <button class="withdraw">Withdraw</button>
+    <button class="declare">Declare Winner</button>
+    <button class="startNew">Start New Session</button>
+    <button class="destroy">Destroy Contract</button>
+
+  </div>
+
+  <script>
+    var counter1=0,counter2=0,counter3=0;
+
+    function onClick(buttonNumber) {
+      
+      if(buttonNumber === 1){
+        counter1 +=1;
+        document.getElementById("carClick").value = 'You place '+counter1.toString()+' ticket/s in this raffle box';
+      }else if(buttonNumber === 2){
+        counter2 +=1;
+        document.getElementById("laptopClick").value = 'You place '+counter2.toString()+' ticket/s in this raffle box';
+      }else if(buttonNumber === 3){
+        counter3 +=1;
+        document.getElementById("phoneClick").value = 'You place '+counter3.toString()+' ticket/s in this raffle box';
+      }
+    }
+  </script>
+</body>
+</html>
